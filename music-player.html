@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Music Player</title>
+    <link rel="stylesheet" href="/style/music-player.css">
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+
+    <div class="container">
+        <div class="music-player">
+          <nav>
+            <div class="circle">
+              <img src="/images/Music-player/left.png">
+            </div>
+            <div class="circle">
+              <img src="/images/Music-player/menu.png">
+            </div>
+          </nav>
+          <img src="/images/Music-player/468-thumbnail.png" class="song-img">
+          <h1>Despacito</h1>
+          <p>Luis Fonsi Ft. Puerto Rican</p>
+
+          <audio controls id="song">
+            <source src="/images/Music-player/01. Marshmello & Anne-Marie - FRIENDS.mp3" type="audio/mpeg">
+          </audio>
+          <input type="range" value="0" id="progress">
+
+          <div class="controls">
+            <div>
+              <img src="/images/Music-player/rewind.png">
+            </div>
+            <div onclick="playPause()">
+              <img src="/images/Music-player/play.png" id="ctrlIcon">
+            </div>
+            <div>
+              <img src="/images/Music-player/forward.png">
+            </div>
+          </div>
+
+        </div>
+    </div>
+
+
+    <script>
+
+      let progress = document.getElementById("progress");
+      let song = document.getElementById("song");
+      let ctrlIcon = document.getElementById("ctrlIcon");
+
+      song.onloadedmetadata = function() {
+        progress.max = song.duration;
+        progress.value = song.currentTime;
+      }
+
+      
+
+    </script>
+
+  </body>
+</html>
