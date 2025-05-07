@@ -31,7 +31,8 @@
               <img src="/images/Music-player/rewind.png">
             </div>
             <div onclick="playPause()">
-              <img src="/images/Music-player/play.png" id="ctrlIcon">
+              <img src="/images/Music-player/play.png" id="ctrlIcon" class="play">
+              
             </div>
             <div>
               <img src="/images/Music-player/forward.png">
@@ -53,7 +54,24 @@
         progress.value = song.currentTime;
       }
 
-      
+      function playPause() {
+        if (song.play()) {
+          song.pause();
+        }
+        
+       song.play();
+      }
+
+      if(song.play()) {
+        setInterval(()=>{
+          progress.value = song.currentTime
+        },500);
+      }
+
+      progress.onchange = function() {
+        song.play();
+        song.currentTime = progress.value;
+      }
 
     </script>
 
