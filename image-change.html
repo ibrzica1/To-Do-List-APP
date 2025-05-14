@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Image Transition</title>
+    <link rel="stylesheet" href="/style/image-change.css">
+  </head>
+  <body>
+
+    <div class="container">
+
+      <div class="img-box">
+        <img src="/images/Image-Change/transparent.png" width="100%">
+
+        <div class="img-wrap">
+          <img src="/images/Image-Change/original.jpg" id="originalImg">
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <script>
+
+      var ImgBox = document.querySelector(".img-box");
+      var ImgWrap = document.querySelector(".img-wrap");
+      var originalImg = document.querySelector(".originalImg");
+
+      originalImg.style.width = ImgBox.offsetWidth + "px";
+
+      var leftSpace = ImgBox.offsetLeft;
+
+      ImgBox.onmousemove = function(e){
+        	var boxWidth = (e.pageX - leftSpace) + "px";
+          ImgWrap.style.width = boxWidth;
+      }
+
+    </script>
+  </body>
+</html>
