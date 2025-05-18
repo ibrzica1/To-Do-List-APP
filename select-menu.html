@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Select Menu</title>
+    <link rel="stylesheet" href="/style/select-menu.css">
+  </head>
+  <body>
+
+    <div class="hero">
+
+      <div class="selector">
+        <div id="selectField">
+          <p id="selectText">Select Social Media</p>
+          <img id="arrow" src="/images/Select-Menu/arrow.png">
+        </div>
+
+        <ul id="list" class="hide">
+          <li class="option">
+            <img src="/images/Select-Menu/facebook.png">
+            <p>Facebook</p>
+          </li>
+          <li class="option">
+            <img src="/images/Select-Menu/pinterest.png">
+            <p>Instagram</p>
+          </li>
+          <li class="option">
+            <img src="/images/Select-Menu/youtube.png">
+            <p>YouTube</p>
+          </li>
+          <li class="option">
+            <img src="/images/Select-Menu/instagram.png">
+            <p>Twitter</p>
+          </li>
+          <li class="option">
+            <img src="/images/Select-Menu/twitter.png">
+            <p>Pinterest</p>
+          </li>
+          <li class="option">
+            <img src="/images/Select-Menu/whatsapp.png">
+            <p>WhatsApp</p>
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+
+
+    <script>
+
+     var selectField = document.getElementById("selectField");
+      var selectText = document.getElementById("selectText");
+      var option = document.getElementsByClassName("option");
+      var list = document.getElementById("list");
+      var arrow = document.getElementById("arrow");
+
+
+      for(options of option) {
+        options.onclick = function() {
+          selectText.innerHTML = this.textContent;
+          list.classList.toggle("hide");
+          arrow.classList.toggle("arrowRotate");
+        }
+      }
+
+      selectField.onclick = function() {
+        list.classList.toggle("hide");
+        arrow.classList.toggle("arrowRotate");
+        
+      }
+
+    </script>
+  </body>
+</html>
