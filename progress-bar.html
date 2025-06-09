@@ -31,9 +31,28 @@
 
 let number = document.getElementById("number");
 let counter = 0;
+let percentage = 99;
+
+function dashoffset(perc){
+  const circle = document.querySelector('circle');
+  let offset = Math.floor(472 - (472 * (perc/100)));
+  const style = document.createElement('style');
+  style.innerHTML = `
+    @keyframes anim {
+      100% { stroke-dashoffset: ${offset}; }
+    }
+  `;
+  document.head.appendChild(style);
+
+  circle.style.animation = 'none';
+  void circle.offsetWidth;
+  circle.style.animation = 'anim 2s linear forwards';
+}
+dashoffset(percentage);
+
 
 setInterval(() => {
-  if(counter === 65) {
+  if(counter === percentage) {
     clearInterval();
   }
   else {
@@ -41,7 +60,7 @@ setInterval(() => {
     number.innerHTML = counter + "%";
   }
   
-}, 32)
+}, 100-percentage)
 
 </script>
 
